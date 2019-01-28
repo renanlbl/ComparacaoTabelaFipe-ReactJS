@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
+import AppContent from './components/app-content'
 
 
 class App extends Component {
     render() {
         return (
-            <div>
-                <h2>Estado da aplicação</h2>
-            </div>
+            <AppContent />
         )
     }
 }
