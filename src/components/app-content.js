@@ -1,9 +1,8 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
-import { Grid, Paper, Button, Typography, Toolbar, AppBar, FormControl, NativeSelect, MenuItem  } from '@material-ui/core';
-
-
+import { Grid, Paper, Button, Typography, Toolbar, AppBar, FormControl  } from '@material-ui/core';
+import Select  from './select'
 
 const styles = {
   root: {
@@ -37,8 +36,7 @@ const styles = {
   }
 };
 
-const AppContent = (props) => {
-  const { classes } = props;
+const AppContent = ({ classes, options }) => {  
   return (
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
@@ -56,98 +54,36 @@ const AppContent = (props) => {
                 <Grid container spacing={16}>
                   <Grid item xs={12} md={6}>               
                     <FormControl className={classes.formControl}>                  
-                      <NativeSelect 
-                        className={classes.select}
-                        name="age"                  
-                      >
-                        <option value="" disabled selected>
-                          Tipo de veículo
-                        </option>
-                        <option value={10}>Carros</option>
-                        <option value={20}>Caminhões</option>
-                        <option value={30}>Motos</option>
-                      </NativeSelect>
-                      <NativeSelect 
-                        className={classes.select}
-                        name="age"                  
-                      >
-                        <option value="" disabled selected>
-                          Marca
-                        </option>
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
-                      </NativeSelect>
-                      <NativeSelect 
-                        className={classes.select}
-                        name="age"                  
-                      >
-                        <option value="" disabled selected>
-                          Marca
-                        </option>
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
-                      </NativeSelect>
-                      <NativeSelect 
-                        className={classes.select}
-                        name="age"                  
-                      >
-                        <option value="" disabled selected>
-                          Marca
-                        </option>
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
-                      </NativeSelect>
+                      <Select 
+                        name="tipo"         
+                        placeholder="Tipo de veículo"
+                        options={['Carro', 'Caminhão', 'Moto']}                                              
+                        classe={classes.select}                     
+                      />                      
+                      <Select 
+                        name="marca"         
+                        placeholder="Marca do veículo"
+                        options={options}                                             
+                        classe={classes.select}
+                      />                      
+                     {/* REFATOR VALUE PARA CADA TIPO NO SELECT PARA CADA UM DO TIPO */}
                     </FormControl>   
                   </Grid>                 
                   <Grid item xs={12} md={6}>               
                     <FormControl className={classes.formControl}>                  
-                      <NativeSelect 
-                        className={classes.select}
-                        name="age"                  
-                      >
-                        <option value="" disabled selected>
-                          Tipo de veículo
-                        </option>
-                        <option value={10}>Carros</option>
-                        <option value={20}>Caminhões</option>
-                        <option value={30}>Motos</option>
-                      </NativeSelect>
-                      <NativeSelect 
-                        className={classes.select}
-                        name="age"                  
-                      >
-                        <option value="" disabled selected>
-                          Marca
-                        </option>
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
-                      </NativeSelect>
-                      <NativeSelect 
-                        className={classes.select}
-                        name="age"                  
-                      >
-                        <option value="" disabled selected>
-                          Marca
-                        </option>
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
-                      </NativeSelect>
-                      <NativeSelect 
-                        className={classes.select}
-                        name="age"                  
-                      >
-                        <option value="" disabled selected>
-                          Marca
-                        </option>
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
-                      </NativeSelect>                      
+                      <Select 
+                        name="tipo"         
+                        placeholder="Tipo de veículo"
+                        options={['Carro', 'Caminhão', 'Moto']}                                               
+                        classe={classes.select}                        
+                      />                      
+                      <Select 
+                        name="marca"         
+                        placeholder="Marca do veículo"
+                        options={options}                                             
+                        classe={classes.select}   
+                                            
+                      />                          
                     </FormControl>   
                   </Grid>
                   <Grid item xs={12}>
