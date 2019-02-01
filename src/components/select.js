@@ -2,12 +2,12 @@ import React from 'react';
 import { NativeSelect } from '@material-ui/core';
 
 
-const Select = ({ name, placeholder, options, classe }) => (    
+const Select = ({ name, placeholder, options, classe, handleChange }) => (    
         <NativeSelect                 
             name={name} 
             defaultValue="placeholder"
             className={classe}  
-            onChange={(e) => console.log(e.target.value)}         
+            onChange={handleChange}         
         >
             <option name="placeholder" value="placeholder" disabled>
                 {placeholder}
