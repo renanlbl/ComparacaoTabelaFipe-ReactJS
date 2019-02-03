@@ -36,7 +36,7 @@ const styles = {
   }
 };
 
-const AppContent = ({ classes, options, handleChange }) => {  
+const AppContent = ({ classes, options, handleChange, handleClick }) => {  
   return (
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
@@ -57,7 +57,7 @@ const AppContent = ({ classes, options, handleChange }) => {
                       <Select 
                         name="tipo"         
                         placeholder="Tipo de veículo"
-                        options={['carro', 'caminhao', 'motos']}                                              
+                        options={[{name: 'Carro'}, {name: 'Caminhão'}, {name: 'Motos'}]}                                              
                         classe={classes.select}    
                         handleChange={handleChange}                
                       />                      
@@ -66,8 +66,8 @@ const AppContent = ({ classes, options, handleChange }) => {
                         placeholder="Marca do veículo"
                         options={options}                                             
                         classe={classes.select}
-                      />                      
-                     {/* REFATOR VALUE PARA CADA TIPO NO SELECT PARA CADA UM DO TIPO */}
+                        handleChange={handleChange}
+                      />
                     </FormControl>   
                   </Grid>                 
                   <Grid item xs={12} md={6}>               
@@ -75,20 +75,19 @@ const AppContent = ({ classes, options, handleChange }) => {
                       <Select 
                         name="tipo"         
                         placeholder="Tipo de veículo"
-                        options={['Carro', 'Caminhão', 'Moto']}                                               
-                        classe={classes.select}                        
+                        options={[{name: 'Carro'}, {name: 'Caminhão'}, {name: 'Motos'}]}                                               
+                        classe={classes.select} 
                       />                      
                       <Select 
                         name="marca"         
                         placeholder="Marca do veículo"
                         options={options}                                             
-                        classe={classes.select}   
-                                            
+                        classe={classes.select}                    
                       />                          
                     </FormControl>   
                   </Grid>
                   <Grid item xs={12}>
-                  <Button variant="contained" color="primary" className={classes.button}>
+                  <Button variant="contained" onClick={handleClick} color="primary" className={classes.button}>
                     Comparar
                   </Button>
                   <Button variant="contained" color="default" className={classes.button}>
