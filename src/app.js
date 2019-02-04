@@ -26,16 +26,25 @@ class App extends Component {
             })
         })           
     }    
+
+    getVehicle = (idVehicle) => {
+        axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculos/${idVehicle}.json`)
+            .then((response) => {
+                console.log(response.data)
+            })
+    }
     
 
     handleChange = (e) => {       
         if (e.target.name === 'tipo') {
-            const value = e.target.value
-            this.getMarca(value)
+            this.setState({ tipo: e.target.value })
+            this.getMarca(e.target.value)
         }
+       
 
         if (e.target.name === 'marca') {
-            console.log(e.target.value)
+           const idVehicle = e.target.value
+           this.getVehicle(idVehicle)
         }
     }
 
@@ -48,7 +57,7 @@ class App extends Component {
     render() { 
         return (
             <AppContent               
-                options={this.state.marca}   
+                marca={this.state.marca}   
                 handleChange={this.handleChange}  
                 handleClick={this.handleClick}                          
             />          

@@ -36,7 +36,7 @@ const styles = {
   }
 };
 
-const AppContent = ({ classes, options, handleChange, handleClick }) => {  
+const AppContent = ({ classes, marca, handleChange, handleClick }) => {  
   return (
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
@@ -64,7 +64,7 @@ const AppContent = ({ classes, options, handleChange, handleClick }) => {
                       <Select 
                         name="marca"         
                         placeholder="Marca do veículo"
-                        options={options}                                             
+                        options={marca}                                             
                         classe={classes.select}
                         handleChange={handleChange}
                       />
@@ -81,7 +81,7 @@ const AppContent = ({ classes, options, handleChange, handleClick }) => {
                       <Select 
                         name="marca"         
                         placeholder="Marca do veículo"
-                        options={options}                                             
+                        options={marca}                                             
                         classe={classes.select}                    
                       />                          
                     </FormControl>   

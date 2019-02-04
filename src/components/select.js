@@ -2,7 +2,7 @@ import React from 'react';
 import { NativeSelect } from '@material-ui/core';
 
 
-const Select = ({ name, placeholder, options, classe, handleChange }) => (    
+const Select = ({ name, placeholder, options, classe, handleChange }) => ( 
         <NativeSelect                 
             name={name} 
             defaultValue="placeholder"
@@ -11,9 +11,9 @@ const Select = ({ name, placeholder, options, classe, handleChange }) => (
         >
             <option name="placeholder" value="placeholder" disabled>
                 {placeholder}
-            </option>            
+            </option>   
             { options.map((option, index) => (                
-                <option key={index} name={option.name} value={option['name'] === 'Caminhão' ? 'caminhao' : option['name'].toLowerCase()}>
+                <option key={index} name={option.name} value={ option['name'] === 'Caminhão' ? 'caminhao' : option.id || option['name'].toLowerCase() }>
                     {option.name}
                 </option>                
             ))}             
