@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import { Grid, Paper, Button, Typography, Toolbar, AppBar, FormControl  } from '@material-ui/core';
 import Select  from './select'
+import TableCars from './table-cars'
 
 const styles = {
   root: {
@@ -36,7 +37,7 @@ const styles = {
   }
 };
 
-const AppContent = ({ classes, marca, veiculo, modelo, veiculofinal, handleChange, handleClick }) => {  
+const AppContent = ({ classes, marca, veiculo, modelo, veiculofinal, handleChange, handleSubmit, infoTable }) => {  
   return (
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
@@ -63,7 +64,7 @@ const AppContent = ({ classes, marca, veiculo, modelo, veiculofinal, handleChang
                       />                      
                       <Select 
                         name="marca"         
-                        placeholder="Marca do veículo"
+                        placeholder="Marca"
                         options={marca}                                             
                         classe={classes.select}
                         handleChange={handleChange}
@@ -101,7 +102,7 @@ const AppContent = ({ classes, marca, veiculo, modelo, veiculofinal, handleChang
                     </FormControl>   
                   </Grid>
                   <Grid item xs={12}>
-                  <Button variant="contained" onClick={handleClick} color="primary" className={classes.button}>
+                  <Button variant="contained" onClick={handleSubmit} color="primary" className={classes.button}>
                     Comparar
                   </Button>
                   <Button variant="contained" color="default" className={classes.button}>
@@ -109,6 +110,9 @@ const AppContent = ({ classes, marca, veiculo, modelo, veiculofinal, handleChang
                   </Button>
                   </Grid>  
                 </Grid>                
+              </Paper>
+              <Paper>
+              { !!infoTable.length && <TableCars info={infoTable} /> }
               </Paper>
           </Grid>         
         </Grid>

@@ -16,7 +16,8 @@ class App extends Component {
             marca: [],
             veiculo: [],
             modeloEAno: [],
-            vehicleFinal: []
+            vehicleFinal: [],
+            infoTable: []
         }      
      
     }   
@@ -55,17 +56,18 @@ class App extends Component {
         })
     }
 
-    // getVehicleFinal = (key) => {
-    //     this.setState({ vehicleFinal: [] }) 
-    //     axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculo/${this.state.currentIdVehicle}/${this.state.currentIdModel}/${key}.json`)
-    //     .then((response) => {
-    //         console.log(response.data)
-    //         // response.data.map((item, index) => {
-    //         //     let joined = this.state.vehicleFinal.concat([{name: item.name, id: item.key}])
-    //         //     this.setState({ vehicleFinal: joined })
-    //         // })
-    //     })
-    // }
+   
+    getVehicleFinal = (key) => {
+        this.setState({ vehicleFinal: [] }) 
+        axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculo/${this.state.currentIdVehicle}/${this.state.currentIdModel}/${key}.json`)
+        .then((response) => {
+            console.log(response.data)
+            // response.data.map((item, index) => {
+            //     let joined = this.state.vehicleFinal.concat([{name: item.name, id: item.key}])
+            //     this.setState({ vehicleFinal: joined })
+            // })
+        })
+    }
     
 
     handleChange = (e) => {       
@@ -87,16 +89,14 @@ class App extends Component {
             this.setState({ currentIdModel: e.target.value })
          }
 
-        // if (e.target.name === 'modeloeano') {
-        //     const key = e.target.value
-        //     this.getVehicleFinal(key)
-        //     this.setState({ currentIdVehicleFinal: e.target.value })
-        //  }
+        if (e.target.name === 'modeloeano') {
+            const key = e.target.value            
+            this.setState({ currentIdVehicleFinal: key })
+         }
     }
 
-    handleClick = (e) => {
-        this.getMarca('carros')
-        console.log(this.state.marca)
+    handleSubmit = (e) => {
+        this.getVehicleFinal(this.state.currentIdVehicleFinal)        
     }
 
 
@@ -108,7 +108,8 @@ class App extends Component {
                 modelo={this.state.modeloEAno}
                 veiculofinal={this.state.vehicleFinal}
                 handleChange={this.handleChange}  
-                handleClick={this.handleClick}                          
+                handleSubmit={this.handleSubmit}    
+                infoTable={this.state.infoTable}                      
             />          
         )
     }
