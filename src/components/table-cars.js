@@ -11,7 +11,10 @@ const TableCars = ({ classes, info }) => {
     <div className={classes.root}>
       <Paper className={classes.paper}>      
             {info.map((item, index) => (
-                <p>{item}</p>
+              <div>
+                <p>{item.name}</p>
+                <p>{item.preco}</p>
+              </div>
             ))}
       </Paper>
     </div>

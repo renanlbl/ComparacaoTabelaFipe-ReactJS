@@ -37,15 +37,15 @@ const styles = {
   }
 };
 
-const AppContent = ({ classes, marca, veiculo, modelo, veiculofinal, handleChange, handleSubmit, infoTable }) => {  
+const AppContent = ({ classes, marca, veiculo, modelo, handleSelect, handleChange, handleSubmit, infoTable }) => {  
   return (
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
         <Toolbar>          
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            News
+            Tabela Fipe Comparação
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit">Renan Lima Web</Button>
         </Toolbar>
       </AppBar>     
       <Grid container className={classes.root} spacing={16}>
@@ -82,6 +82,7 @@ const AppContent = ({ classes, marca, veiculo, modelo, veiculofinal, handleChang
                         options={modelo}                                             
                         classe={classes.select}
                         handleChange={handleChange}
+                        handleSelect={handleSelect}
                       />                      
                     </FormControl>   
                   </Grid>                 
