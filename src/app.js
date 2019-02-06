@@ -10,14 +10,20 @@ class App extends Component {
 
         this.state = {
             tipo: null,
-            marca: []
+            currentIdVehicle: null,
+            currentIdModel: null,
+            currentIdVehicleFinal: null,
+            marca: [],
+            veiculo: [],
+            modeloEAno: [],
+            vehicleFinal: []
         }      
      
     }   
 
 
     getMarca = (tipo) => {
-        this.setState({ marca: [] })     
+        this.setState({ marca: [], veiculo: [], modeloEAno: [] })     
         axios.get(`http://fipeapi.appspot.com/api/1/${tipo}/marcas.json`)        
         .then((response) => {   
             response.data.map((item, index) => {
@@ -28,11 +34,38 @@ class App extends Component {
     }    
 
     getVehicle = (idVehicle) => {
+        this.setState({ veiculo: [], modeloEAno: [] })  
         axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculos/${idVehicle}.json`)
             .then((response) => {
-                console.log(response.data)
+                response.data.map((item, index) => {
+                    let joined = this.state.veiculo.concat([{name: item.name, id: item.id}])
+                    this.setState({ veiculo: joined })
+                })
             })
+    }    
+
+    getModelAndYear = (idVehicle) => {
+        this.setState({ modeloEAno: [] }) 
+        axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculo/${this.state.currentIdVehicle}/${idVehicle}.json`)
+        .then((response) => {
+            response.data.map((item, index) => {
+                let joined = this.state.modeloEAno.concat([{name: item.name, id: item.id}])
+                this.setState({ modeloEAno: joined })
+            })
+        })
     }
+
+    // getVehicleFinal = (key) => {
+    //     this.setState({ vehicleFinal: [] }) 
+    //     axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculo/${this.state.currentIdVehicle}/${this.state.currentIdModel}/${key}.json`)
+    //     .then((response) => {
+    //         console.log(response.data)
+    //         // response.data.map((item, index) => {
+    //         //     let joined = this.state.vehicleFinal.concat([{name: item.name, id: item.key}])
+    //         //     this.setState({ vehicleFinal: joined })
+    //         // })
+    //     })
+    // }
     
 
     handleChange = (e) => {       
@@ -45,7 +78,20 @@ class App extends Component {
         if (e.target.name === 'marca') {
            const idVehicle = e.target.value
            this.getVehicle(idVehicle)
+           this.setState({ currentIdVehicle: e.target.value })
         }
+
+        if (e.target.name === 'veiculo') {
+            const idVehicle = e.target.value
+            this.getModelAndYear(idVehicle)
+            this.setState({ currentIdModel: e.target.value })
+         }
+
+        // if (e.target.name === 'modeloeano') {
+        //     const key = e.target.value
+        //     this.getVehicleFinal(key)
+        //     this.setState({ currentIdVehicleFinal: e.target.value })
+        //  }
     }
 
     handleClick = (e) => {
@@ -57,7 +103,10 @@ class App extends Component {
     render() { 
         return (
             <AppContent               
-                marca={this.state.marca}   
+                marca={this.state.marca}  
+                veiculo={this.state.veiculo} 
+                modelo={this.state.modeloEAno}
+                veiculofinal={this.state.vehicleFinal}
                 handleChange={this.handleChange}  
                 handleClick={this.handleClick}                          
             />          
