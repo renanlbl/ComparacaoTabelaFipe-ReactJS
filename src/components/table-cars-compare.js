@@ -6,13 +6,12 @@ import {  Paper  } from '@material-ui/core';
 const styles = {
 }
 
-const TableCars = ({ classes, info }) => {  
+const TableCarsCompare = ({ classes, infoCompare }) => {  
   return (
     <div className={classes.root}>
-     
-              
-            {info.map((item, index) => (
-              <div className="car">
+        
+            {infoCompare.map((item, index) => (
+              <div className="car-compare">
                 <p><span>Marca:</span> {item.marca}</p>
                 <p><span>Veículo:</span> {item.name}</p>
                 <p><span>Ano:</span> {item.ano_modelo}</p>
@@ -21,12 +20,12 @@ const TableCars = ({ classes, info }) => {
                 <p className="preco" ><span>Preço:</span> {item.preco}</p>
               </div>
             ))} 
-            {console.log(info)} 
-       
+            {console.log(infoCompare)}  
       
+    
     </div>
   );
 }
 
 
-export default withStyles(styles)(TableCars);
+export default withStyles(styles)(TableCarsCompare);

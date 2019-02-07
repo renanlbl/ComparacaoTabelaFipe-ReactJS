@@ -4,6 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { Grid, Paper, Button, Typography, Toolbar, AppBar, FormControl  } from '@material-ui/core';
 import Select  from './select'
 import TableCars from './table-cars'
+import TableCarsCompare from './table-cars-compare'
 
 const styles = {
   root: {
@@ -34,10 +35,14 @@ const styles = {
   },
   button: {
     marginRight: 10
+  },
+  buttonA: {
+    textDecoration: 'none',
+    color: '#fff'
   }
 };
 
-const AppContent = ({ classes, marca, veiculo, modelo, handleSelect, handleChange, handleSubmit, infoTable }) => {  
+const AppContent = ({ classes, marca, marcaCompare, veiculo, veiculoCompare, modelo, modeloCompare, handleSelect, handleChange, handleSubmit, infoTable, infoTableCompare }) => {  
   return (
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
@@ -45,7 +50,7 @@ const AppContent = ({ classes, marca, veiculo, modelo, handleSelect, handleChang
           <Typography variant="h6" color="inherit" className={classes.grow}>
             Tabela Fipe Comparação
           </Typography>
-          <Button color="inherit">Renan Lima Web</Button>
+          <Button color="inherit"><a className={classes.buttonA} target="_blank" href="https://renanlimaweb.com.br">Renan Lima Web</a></Button>
         </Toolbar>
       </AppBar>     
       <Grid container className={classes.root} spacing={16}>
@@ -89,16 +94,32 @@ const AppContent = ({ classes, marca, veiculo, modelo, handleSelect, handleChang
                   <Grid item xs={12} md={6}>               
                     <FormControl className={classes.formControl}>                  
                       <Select 
-                        name="tipo"         
+                        name="tipoCompare"         
                         placeholder="Tipo de veículo"
                         options={[{name: 'Carro'}, {name: 'Caminhão'}, {name: 'Motos'}]}                                               
                         classe={classes.select} 
+                        handleChange={handleChange}
                       />                      
                       <Select 
-                        name="marca"         
-                        placeholder="Marca do veículo"
-                        options={marca}                                             
-                        classe={classes.select}                    
+                        name="marcaCompare"         
+                        placeholder="Marca"
+                        options={marcaCompare}                                             
+                        classe={classes.select}     
+                        handleChange={handleChange}               
+                      />                          
+                      <Select 
+                        name="veiculoCompare"         
+                        placeholder="Veículo"
+                        options={veiculoCompare}                                             
+                        classe={classes.select}   
+                        handleChange={handleChange}                 
+                      />                          
+                      <Select 
+                        name="modeloeanoCompare"         
+                        placeholder="Modelo"
+                        options={modeloCompare}                                             
+                        classe={classes.select}    
+                        handleChange={handleChange}                
                       />                          
                     </FormControl>   
                   </Grid>
@@ -112,9 +133,14 @@ const AppContent = ({ classes, marca, veiculo, modelo, handleSelect, handleChang
                   </Grid>  
                 </Grid>                
               </Paper>
-              <Paper>
-              { !!infoTable.length && <TableCars info={infoTable} /> }
-              </Paper>
+              { !!infoTable.length && !!infoTableCompare.length &&
+                <Paper>    
+                  <Grid container spacing={16}>                 
+                    <Grid item xs={12} md={6}>{ !!infoTable.length && <TableCars info={infoTable} /> }</Grid>          
+                    <Grid item xs={12} md={6}>{ !!infoTableCompare.length && <TableCarsCompare infoCompare={infoTableCompare} /> }</Grid>
+                  </Grid>
+                </Paper>
+              }
           </Grid>         
         </Grid>
       </Grid> 

@@ -18,3 +18,24 @@ div.content {
     height: 800px;
     background: rgb(142, 142, 207);
 }
+
+div.car p,
+div.car-compare p {
+    padding: 10px 7px;
+    background-color: #ddd;
+    font-size: 15px;
+    text-transform: uppercase;
+    border: 1px solid black;
+    font-weight: bold;
+}
+div.car span,
+div.car-compare span {
+    font-weight: normal;
+}
+
+div.car p.preco, 
+div.car-compare p.preco
+{
+    background-color: #1e88e5;
+    color: #fff;
+}
