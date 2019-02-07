@@ -8,7 +8,9 @@
 ```
 npm install
 ```
-2) Inicie o servidor, por padrão irá rodar em http://localhost:8080
+2) Inicie o servidor
 ```
-npm run dev
+npm start (irá rodar em http://localhost:3000)
+ou
+npm run dev (irá rodar em http://localhost:8080)
 ```
