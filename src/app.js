@@ -184,6 +184,28 @@ class App extends Component {
         this.getVehicleFinalCompare(this.state.currentIdVehicleFinalCompare)        
     }
 
+    handleClear = (e) => {
+        this.setState( {
+            tipo: null,
+            tipoCompare: null,
+            currentIdVehicle: null,
+            currentIdVehicleCompare: null,
+            currentIdModel: null,
+            currentIdModelCompare: null,
+            currentIdVehicleFinal: null,
+            currentIdVehicleFinalCompare: null,
+            marca: [],
+            marcaCompare: [],
+            veiculo: [],
+            veiculoCompare: [],
+            modeloEAno: [],
+            modeloEAnoCompare: [],
+            vehicleFinal: [],
+            infoTable: [],
+            infoTableCompare: []
+        } )
+    }
+
 
     render() { 
         return (
@@ -197,9 +219,9 @@ class App extends Component {
                 veiculofinal={this.state.vehicleFinal}
                 handleChange={this.handleChange}  
                 handleSubmit={this.handleSubmit}    
+                handleClear={this.handleClear}
                 infoTable={this.state.infoTable} 
-                infoTableCompare={this.state.infoTableCompare}     
-                                  
+                infoTableCompare={this.state.infoTableCompare}  
             />          
         )
     }

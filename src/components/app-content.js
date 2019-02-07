@@ -42,7 +42,7 @@ const styles = {
   }
 };
 
-const AppContent = ({ classes, marca, marcaCompare, veiculo, veiculoCompare, modelo, modeloCompare, handleSelect, handleChange, handleSubmit, infoTable, infoTableCompare }) => {  
+const AppContent = ({ classes, marca, marcaCompare, veiculo, veiculoCompare, modelo, modeloCompare, handleClear, handleChange, handleSubmit, infoTable, infoTableCompare }) => {  
   return (
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
@@ -86,8 +86,7 @@ const AppContent = ({ classes, marca, marcaCompare, veiculo, veiculoCompare, mod
                         placeholder="Modelo"
                         options={modelo}                                             
                         classe={classes.select}
-                        handleChange={handleChange}
-                        handleSelect={handleSelect}
+                        handleChange={handleChange}                        
                       />                      
                     </FormControl>   
                   </Grid>                 
@@ -127,7 +126,7 @@ const AppContent = ({ classes, marca, marcaCompare, veiculo, veiculoCompare, mod
                   <Button variant="contained" onClick={handleSubmit} color="primary" className={classes.button}>
                     Comparar
                   </Button>
-                  <Button variant="contained" color="default" className={classes.button}>
+                  <Button variant="contained" onClick={handleClear} color="default" className={classes.button}>
                     Limpar
                   </Button>
                   </Grid>  
