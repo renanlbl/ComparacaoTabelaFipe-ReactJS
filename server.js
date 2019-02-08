@@ -7,7 +7,7 @@ new WebpackDevServer(webpack(config), {
   hot: true,
   historyApiFallback: true,
   stats: { colors: true }
-}).listen(process.env.PORT || 3000, (err) => {
+}).listen(3000, (err) => {
   if (err) {
     return console.log(err)
   }
