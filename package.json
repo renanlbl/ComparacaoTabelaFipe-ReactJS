@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Consulta na tabela fipe",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+  "scripts": {    
     "dev": "webpack-dev-server --progress --inline --hot --colors",
     "start": "node server.js",
+    "build": "webpack --mode production",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
@@ -37,6 +37,7 @@
     "material-ui": "^0.20.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1",
     "style-loader": "^0.23.1"
   }
 }
