@@ -11,6 +11,13 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/dist/'
     },
+
+    plugins: [
+        new webpack.EnvironmentPlugin({
+            NODE_ENV: 'production', // use 'development' unless process.env.NODE_ENV is defined
+            DEBUG: true
+        })
+    ],
   
     module: {
         rules: [{
@@ -29,6 +36,8 @@ module.exports = {
             ]
         }]
     },
+
+    
    
     performance: {
         hints: false
