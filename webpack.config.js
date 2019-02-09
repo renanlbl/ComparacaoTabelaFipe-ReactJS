@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     devtool: 'source-map',
@@ -16,9 +17,13 @@ module.exports = {
         new webpack.EnvironmentPlugin({
             NODE_ENV: 'production', // use 'development' unless process.env.NODE_ENV is defined
             DEBUG: true
+        }),
+        new HtmlWebPackPlugin({
+            template: "./index.html",
+            filename: "./index.html"
         })
     ],
-  
+    
     module: {
         rules: [{
             test: /\.js$/,

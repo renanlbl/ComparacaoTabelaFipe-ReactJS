@@ -33,7 +33,7 @@ class App extends Component {
 
     getMarca = (tipo) => {
         this.setState({ marca: [], veiculo: [], modeloEAno: [] })     
-        axios.get(`http://fipeapi.appspot.com/api/1/${tipo}/marcas.json`)        
+        axios.get(`https://fipeapi.appspot.com/api/1/${tipo}/marcas.json`)        
         .then((response) => {   
             response.data.map((item, index) => {
                 let joined = this.state.marca.concat([{name: item.name, id: item.id}])
@@ -44,7 +44,7 @@ class App extends Component {
 
     getMarcaCompare = (tipo) => {
         this.setState({ marcaCompare: [], veiculoCompare: [], modeloEAnoCompare: [] })     
-        axios.get(`http://fipeapi.appspot.com/api/1/${tipo}/marcas.json`)        
+        axios.get(`https://fipeapi.appspot.com/api/1/${tipo}/marcas.json`)        
         .then((response) => {   
             response.data.map((item, index) => {
                 let joined = this.state.marcaCompare.concat([{name: item.name, id: item.id}])
@@ -55,7 +55,7 @@ class App extends Component {
 
     getVehicle = (idVehicle) => {
         this.setState({ veiculo: [], modeloEAno: [] })  
-        axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculos/${idVehicle}.json`)
+        axios.get(`https://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculos/${idVehicle}.json`)
             .then((response) => {
                 response.data.map((item, index) => {
                     let joined = this.state.veiculo.concat([{name: item.name, id: item.id}])
@@ -66,7 +66,7 @@ class App extends Component {
        
     getVehicleCompare = (idVehicle) => {
         this.setState({ veiculoCompare: [], modeloEAnoCompare: [] })  
-        axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipoCompare}/veiculos/${idVehicle}.json`)
+        axios.get(`https://fipeapi.appspot.com/api/1/${this.state.tipoCompare}/veiculos/${idVehicle}.json`)
             .then((response) => {
                 response.data.map((item, index) => {
                     let joined = this.state.veiculoCompare.concat([{name: item.name, id: item.id}])
@@ -77,7 +77,7 @@ class App extends Component {
 
     getModelAndYear = (idVehicle) => {
         this.setState({ modeloEAno: [] }) 
-        axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculo/${this.state.currentIdVehicle}/${idVehicle}.json`)
+        axios.get(`https://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculo/${this.state.currentIdVehicle}/${idVehicle}.json`)
         .then((response) => {
             response.data.map((item, index) => {
                 let joined = this.state.modeloEAno.concat([{name: item.name, id: item.id}])
@@ -88,7 +88,7 @@ class App extends Component {
 
     getModelAndYearCompare = (idVehicle) => {
         this.setState({ modeloEAnoCompare: [] }) 
-        axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipoCompare}/veiculo/${this.state.currentIdVehicleCompare}/${idVehicle}.json`)
+        axios.get(`https://fipeapi.appspot.com/api/1/${this.state.tipoCompare}/veiculo/${this.state.currentIdVehicleCompare}/${idVehicle}.json`)
         .then((response) => {
             response.data.map((item, index) => {
                 let joined = this.state.modeloEAnoCompare.concat([{name: item.name, id: item.id}])
@@ -104,7 +104,7 @@ class App extends Component {
             return false
         }
        
-        axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculo/${this.state.currentIdVehicle}/${this.state.currentIdModel}/${key}.json`)
+        axios.get(`https://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculo/${this.state.currentIdVehicle}/${this.state.currentIdModel}/${key}.json`)
         .then((response) => {
             console.log(response.data)
             this.setState({ infoTable: [response.data]})
@@ -118,7 +118,7 @@ class App extends Component {
         if (this.state.tipoCompare === null || this.state.currentIdVehicleCompare === null || this.state.currentIdModelCompare === null || key === null) {
             return false
         }
-        axios.get(`http://fipeapi.appspot.com/api/1/${this.state.tipoCompare}/veiculo/${this.state.currentIdVehicleCompare}/${this.state.currentIdModelCompare}/${key}.json`)
+        axios.get(`https://fipeapi.appspot.com/api/1/${this.state.tipoCompare}/veiculo/${this.state.currentIdVehicleCompare}/${this.state.currentIdModelCompare}/${key}.json`)
         .then((response) => {
             console.log(response.data)
             this.setState({ infoTableCompare: [response.data]})
