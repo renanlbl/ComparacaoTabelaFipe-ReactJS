@@ -21,7 +21,7 @@ const TableCars = ({ classes, info }) => {
                 <p className="preco" ><span>Preço:</span> {item.preco}</p>
               </div>
             ))} 
-            {console.log(info)} 
+           
        
       
     </div>

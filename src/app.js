@@ -105,10 +105,8 @@ class App extends Component {
         }
        
         axios.get(`https://fipeapi.appspot.com/api/1/${this.state.tipo}/veiculo/${this.state.currentIdVehicle}/${this.state.currentIdModel}/${key}.json`)
-        .then((response) => {
-            console.log(response.data)
-            this.setState({ infoTable: [response.data]})
-            console.log(this.state.infoTable)           
+        .then((response) => {            
+            this.setState({ infoTable: [response.data]})                     
         })
       
     }
@@ -119,10 +117,8 @@ class App extends Component {
             return false
         }
         axios.get(`https://fipeapi.appspot.com/api/1/${this.state.tipoCompare}/veiculo/${this.state.currentIdVehicleCompare}/${this.state.currentIdModelCompare}/${key}.json`)
-        .then((response) => {
-            console.log(response.data)
-            this.setState({ infoTableCompare: [response.data]})
-            console.log(this.state.infoTableCompare)
+        .then((response) => {            
+            this.setState({ infoTableCompare: [response.data]})            
             // response.data.map((item, index) => {
             //     let joined = this.state.vehicleFinal.concat([{name: item.name, id: item.key}])
             //     this.setState({ vehicleFinal: joined })

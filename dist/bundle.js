@@ -11523,9 +11523,7 @@ var App = function (_Component) {
             }
 
             _axios2.default.get('https://fipeapi.appspot.com/api/1/' + _this.state.tipo + '/veiculo/' + _this.state.currentIdVehicle + '/' + _this.state.currentIdModel + '/' + key + '.json').then(function (response) {
-                console.log(response.data);
                 _this.setState({ infoTable: [response.data] });
-                console.log(_this.state.infoTable);
             });
         };
 
@@ -11535,9 +11533,7 @@ var App = function (_Component) {
                 return false;
             }
             _axios2.default.get('https://fipeapi.appspot.com/api/1/' + _this.state.tipoCompare + '/veiculo/' + _this.state.currentIdVehicleCompare + '/' + _this.state.currentIdModelCompare + '/' + key + '.json').then(function (response) {
-                console.log(response.data);
                 _this.setState({ infoTableCompare: [response.data] });
-                console.log(_this.state.infoTableCompare);
                 // response.data.map((item, index) => {
                 //     let joined = this.state.vehicleFinal.concat([{name: item.name, id: item.key}])
                 //     this.setState({ vehicleFinal: joined })
@@ -39554,10 +39550,7 @@ var Select = function Select(_ref) {
             name: name,
             defaultValue: 'placeholder',
             className: classe,
-            onChange: handleChange,
-            onLoadedData: function onLoadedData(e) {
-                return console.log(e.target.value);
-            }
+            onChange: handleChange
         },
         _react2.default.createElement(
             'option',
@@ -39677,8 +39670,7 @@ var TableCars = function TableCars(_ref) {
           item.preco
         )
       );
-    }),
-    console.log(info)
+    })
   );
 };
 
@@ -39785,8 +39777,7 @@ var TableCarsCompare = function TableCarsCompare(_ref) {
           item.preco
         )
       );
-    }),
-    console.log(infoCompare)
+    })
   );
 };
 

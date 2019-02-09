@@ -19,8 +19,7 @@ const TableCarsCompare = ({ classes, infoCompare }) => {
                 <p><span>Ano referência:</span> {item.referencia}</p>
                 <p className="preco" ><span>Preço:</span> {item.preco}</p>
               </div>
-            ))} 
-            {console.log(infoCompare)}  
+            ))}        
       
     
     </div>

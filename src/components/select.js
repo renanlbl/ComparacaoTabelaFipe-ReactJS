@@ -7,8 +7,7 @@ const Select = ({ name, placeholder, options, classe, handleChange, handleSelect
             name={name} 
             defaultValue="placeholder"
             className={classe}  
-            onChange={handleChange}
-            onLoadedData={(e) => console.log(e.target.value)}            
+            onChange={handleChange}                      
         >
             <option name="placeholder" value="placeholder">
                 {placeholder}
