@@ -11593,6 +11593,10 @@ var App = function (_Component) {
         };
 
         _this.handleClear = function (e) {
+            var type = document.querySelector('[name=tipo]');
+            var typeCompare = document.querySelector('[name=tipoCompare]');
+            type.children.placeholder.selected = true;
+            typeCompare.children.placeholder.selected = true;
             _this.setState({
                 tipo: null,
                 tipoCompare: null,
