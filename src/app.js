@@ -181,6 +181,10 @@ class App extends Component {
     }
 
     handleClear = (e) => {
+        const type = document.querySelector('[name=tipo]')
+        const typeCompare = document.querySelector('[name=tipoCompare]')
+        type.children.placeholder.selected = true
+        typeCompare.children.placeholder.selected = true
         this.setState( {
             tipo: null,
             tipoCompare: null,
