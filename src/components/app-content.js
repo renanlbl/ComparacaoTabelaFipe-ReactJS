@@ -34,11 +34,15 @@ const styles = {
     margin: '10px 0'
   },
   button: {
-    marginRight: 10
+    marginRight: 10,
+    color: '#fff',
+  },
+  buttonB:{
+    background: '#f50057',
+    marginRight: '15px'
   },
   buttonA: {
     textDecoration: 'none',
-    color: '#fff'
   }
 };
 
@@ -123,7 +127,7 @@ const AppContent = ({ classes, marca, marcaCompare, veiculo, veiculoCompare, mod
                     </FormControl>   
                   </Grid>
                   <Grid item xs={12}>
-                  <Button variant="contained" onClick={handleSubmit} color="primary" className={classes.button}>
+                  <Button variant="contained" onClick={handleSubmit} color="primary" className={classes.buttonB}>
                     Comparar
                   </Button>
                   <Button variant="contained" onClick={handleClear} color="default" className={classes.button}>
