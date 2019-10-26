@@ -1,4 +1,6 @@
 # Tabela Fipe
+## INFORMAÇÃO: TABELA FIPE NÃO ESTÁ MAIS GRÁTIS, PORTANTO O PROJETO ESTARÁ DESATIVADO POR TEMPO INDERTEMINADO.
+
 ## Demo: https://tabela-fipe-comparacao.netlify.com/
 
 
